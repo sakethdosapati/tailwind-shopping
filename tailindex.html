@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Webpage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-white text-2xl font-bold">Cart&Carry</a>
+      <ul class="flex space-x-6 text-white">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#" class="hover:underline">About</a></li>
+        <li><a href="#" class="hover:underline">Services</a></li>
+        <li><a href="#" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Carousel -->
+  <div class="relative w-full overflow-hidden mt-8">
+    <div class="carousel flex transition-transform duration-500">
+      <img src="https://cdn.pixabay.com/photo/2015/09/21/14/24/supermarket-949913_640.jpg" alt="Slide 1" class="w-full h-96 object-cover">
+      <img src="https://cdn.pixabay.com/photo/2019/03/13/11/07/supermarket-4052658_640.jpg" alt="Slide 2" class="w-full h-96 object-cover">
+      <img src="https://cdn.pixabay.com/photo/2014/10/28/22/19/supermarket-507295_640.jpg" alt="Slide 3" class="w-full h-96 object-cover">
+      <img src="https://cdn.pixabay.com/photo/2018/03/22/11/55/market-3250212_960_720.jpg" alt="Slide 4" class="w-full h-96 object-cover">
+      <img src="https://cdn.pixabay.com/photo/2018/06/10/17/39/market-3466906_640.jpg" alt="Slide 4" class="w-full h-96 object-cover">
+
+    </div>
+    <button id="prevBtn" class="absolute top-1/2 left-4 bg-blue-500 text-white px-4 py-2 rounded-full">Prev</button>
+    <button id="nextBtn" class="absolute top-1/2 right-4 bg-blue-500 text-white px-4 py-2 rounded-full">Next</button>
+  </div>
+
+  <!-- Cards Section -->
+  <section class="container mx-auto mt-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white shadow-lg rounded-lg p-6 hover:scale-105 transform transition duration-500">
+        <img src="https://cdn.pixabay.com/photo/2015/09/21/14/24/supermarket-949913_640.jpg" alt="Card 1" class="w-full h-56 object-cover rounded-t-lg">
+        <h2 class="text-2xl font-bold mt-4">New Offers EveryDay</h2>
+        <p class="text-gray-600 mt-2">Love the Shopping and Explore more</p>
+        <button class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg">Learn More</button>
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-6 hover:scale-105 transform transition duration-500">
+        <img src="https://cdn.pixabay.com/photo/2019/03/13/11/07/supermarket-4052658_640.jpg" alt="Card 2" class="w-full h-56 object-cover rounded-t-lg">
+        <h2 class="text-2xl font-bold mt-4">365 days Lowest Prices</h2>
+        <p class="text-gray-600 mt-2">Innovative thoughts and modern solutions for your business.</p>
+        <button class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg">Learn More</button>
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-6 hover:scale-105 transform transition duration-500">
+        <img src="https://cdn.pixabay.com/photo/2014/10/28/22/19/supermarket-507295_640.jpg" alt="Card 3" class="w-full h-56 object-cover rounded-t-lg">
+        <h2 class="text-2xl font-bold mt-4">Customer Satisfaction</h2>
+        <p class="text-gray-600 mt-2">We prioritize customer satisfaction through dedication and innovation.</p>
+        <button class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 mt-12 p-6 text-white">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 CreativeBrand. All rights reserved.</p>
+      <div class="flex justify-center space-x-4 mt-4">
+        <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+        <a href="#" class="hover:text-gray-300">Terms of Service</a>
+        <a href="#" class="hover:text-gray-300">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.carousel img');
+    const totalSlides = slides.length;
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      document.querySelector('.carousel').style.transform = `translateX(-${currentIndex * 100}%)`;
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      document.querySelector('.carousel').style.transform = `translateX(-${currentIndex * 100}%)`;
+    });
+  </script>
+  
+</body>
+</html>
